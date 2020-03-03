@@ -8,7 +8,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "general_image": "bazel query 'kind(rule, projects/app1/src:*)' --output=graph | dot -Tpng > general.png",
+    "prod_app_image": "bazel query \"kind(rule, allpaths(//projects/app1/src:prodapp, //...))\" --output=graph | dot -Tpng > prodapp.png",
+    "decserver_image": "bazel query \"kind(rule, allpaths(//projects/app1/src:devserver, //...))\" --output=graph | dot -Tpng > devserver.png"
   },
   "private": true,
   "dependencies": {
